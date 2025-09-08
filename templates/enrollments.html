@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollments</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        form {
+            display: inline-block;
+        }
+        input[type="text"] {
+            width: 60px;
+            padding: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Enrollments</h1>
+
+    <table>
+        <tr>
+            <th>Enrollment ID</th>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Progress</th>
+            <th>Update Progress</th>
+        </tr>
+
+        {% for enrollment in enrollments %}
+        <tr>
+            <td>{{ enrollment[0] }}</td>
+            <td>{{ enrollment[1] }}</td>
+            <td>{{ enrollment[2] }}</td>
+            <td>{{ enrollment[3] }}</td>
+            <td>{{ enrollment[4] }}</td>
+            <td>{{ enrollment[5] }}%</td>
+            <td>
+                <form action="{{ url_for('update_progress', student_id=enrollment[1], course_id=enrollment[3]) }}" method="POST">
+                    <input type="text" name="progress" value="{{ enrollment[5] }}">
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

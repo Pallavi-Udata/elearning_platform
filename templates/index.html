@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Learning System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    nav {
+      background: #0056b3;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to E-Learning System</h1>
+  </header>
+
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('courses') }}">Courses</a>
+    <a href="{{ url_for('enrollments') }}">Enrollments</a>
+  </nav>
+
+  <div class="container">
+    <h2>About</h2>
+    <p>This is a simple E-Learning Management System where students can browse available courses, enroll in them, and track progress.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>View list of courses</li>
+      <li>Enroll in courses</li>
+      <li>Track enrollment progress</li>
+    </ul>
+  </div>
+</body>
+</html>
